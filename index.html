@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>শুভ জন্মদিন মুন!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ff80bf, #ffb3d9);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .container {
+      padding: 20px;
+      animation: fadeIn 3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      font-size: 3em;
+      margin: 20px 0;
+      color: #fff;
+    }
+    .cake {
+      width: 250px;
+      margin: 0 auto;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .photo {
+      width: 250px;
+      border-radius: 20px;
+      border: 4px solid #fff;
+      margin-top: 15px;
+      box-shadow: 0 0 20px #ff4da6;
+    }
+    .message-box {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 15px;
+      margin: 10px auto;
+      width: 80%;
+      font-size: 1.2em;
+      color: #000;
+    }
+    #countdown {
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #fff;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 1em;
+      color: #fff;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="birthday_song.mp3" type="audio/mpeg">
+    আপনার ব্রাউজার এই অডিও প্লেয়ারটি সমর্থন করে না।
+  </audio>
+
+  <div class="container">
+    <h1>শুভ জন্মদিন বান্ধবী, মুন 🎉</h1>
+    <img src="mun_photo.jpg" alt="মুন" class="photo" />
+    <div class="message-box">জন্মদিনে তিনি অনেক অনেক অভিনন্দন ও একগুচ্ছ ভালোবাসা। ❤️</div>
+    <div class="message-box">জন্মদিনে অনেক অনেক ভালো থাকিস এই কামনা করি। 🥰</div>
+
+    <!-- Countdown Timer -->
+    <div id="countdown">সারপ্রাইজ আনলক হবে তখন...</div>
+  </div>
+
+  <footer>
+    ইতি,
+    তোর সবচেয়ে কাছের বন্ধু,
+    রিফাত
+  </footer>
+
+  <script>
+    const countdownEl = document.getElementById("countdown");
+    const targetDate = new Date("April 24, 2025 00:00:00").getTime();
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `🎁 সারপ্রাইজ আনলক হতে: ${days} দিন ${hours} ঘন্টা ${minutes} মিনিট ${seconds} সেকেন্ড`;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        countdownEl.innerHTML = "🎉 সময় হয়েছে! শুভ জন্মদিন মুন! 🎂";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
